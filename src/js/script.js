@@ -22,4 +22,7 @@ $(document).ready(function(){
       };
       toggleSlide('.catalog_item_link');
       toggleSlide('.catalog_item_list_back');
+      $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+      })
   });
