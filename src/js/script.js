@@ -25,4 +25,21 @@ $(document).ready(function(){
       $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').focus()
       })
+
+      //Модальные окна
+      $('[data-modal="consultation"]').on('click', function(){
+        $('.overlay, #consultation').fadeIn('slow');
+      });
+      $('.modal_close').on('click', function(){
+        $('.overlay, #consultation, #thanks, #order').fadeOut('slow');
+      });
+      $('.catalog_item_footer_btn').on('click', function(){
+        $('.overlay, #order').fadeIn('slow');
+      });
+      $('.catalog_item_footer_btn').each(function(i){
+        $(this).on('click', function(){
+          $('#order .modal_descr').text($('.catalog_item_subtitle').eq(i).text());
+          $('.overlay, #order').fadeIn('slow');
+        })
+      });
   });
