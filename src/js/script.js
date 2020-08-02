@@ -42,4 +42,40 @@ $(document).ready(function(){
           $('.overlay, #order').fadeIn('slow');
         })
       });
-  });
+
+      //Валидация форм
+
+      function validateForms(form) {
+        $(form).validate({
+          rules: {
+            name: {
+              required: true,
+              minlength: 2
+            },
+            phone: "required",
+            email: {
+              required: true,
+              email: true
+            }
+          },
+          messages: {
+            name: 
+            {
+              required: "Пожалуйста введите ваше имя",
+              minlength: jQuery.validator.format("Введите как минимум {0} символа!")
+            },
+            phone: "Пожалуйста, введите ваш номер телефона",
+            email: {
+              required: "Пожалуйста введите свой e-mail",
+              email: "Неправильно введен адрес электронной почты"
+            }
+          }
+        });
+      };
+      validateForms('#consultation-form');
+      validateForms('#consultation form');
+      validateForms('#order form');
+
+
+      $('input[name=phone]').mask("+7 (999) 999-99-99"); 
+    });
